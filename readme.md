@@ -8,8 +8,12 @@ github 上 new reposity 之后直接 clone 即可。强烈建议配置SSH后使�
 
 ## git push 骚操作
  `git push -u <remote> <source>` source是本地的，如果远程source不存在，则会在远程仓库新建一个source。如果该远程仓库是第一次提交，则会把source设为默认分支。
+ `git push <remote> <source>:<destination>` 例如 `git push origin main:other` 会把本地main的commit推送到远程的other分支上
  `git push <remote> <source>:<destination>` 如果不写source则把远程的destination删除了，例如`git push origin :other` 会把远程的other分支删除，但不能删除远程的默认分支
 
 ## git pull
 git pull 拉取的是本地没有的commit，如果本地已存在远程上所有的commit则不会有任何改变。
 git pull 也可以使用 <source>:<destination> ，git pull orgin main:foo，会使本地的foo分支拉取远程main分支所有的commit，这种<source>:<destination>方式都不推荐使用，会造成可读性大大降低。
+
+## pull和push的 <source>:<destination> 区别
+pull的source是远程的source，push的source是本地的source
